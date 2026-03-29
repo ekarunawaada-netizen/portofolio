@@ -50,14 +50,27 @@ export default function RequestQuoteModal({ isOpen, onClose, serviceName }: Requ
     return valid;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
     setStatus("submitting");
-    setTimeout(() => {
+
+    const { submitQuoteRequest } = await import("../app/actions");
+    const result = await submitQuoteRequest({
+      name: formData.name,
+      phone: formData.phone,
+      service: formData.service,
+      address: formData.address,
+      message: formData.message,
+    });
+
+    if (result.success) {
       setStatus("success");
       setFormData({ name: "", phone: "", address: "", message: "", service: serviceName });
-    }, 1500);
+    } else {
+      setStatus("idle");
+      alert(result.error || "Gagal mengirim. Silakan coba lagi.");
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {

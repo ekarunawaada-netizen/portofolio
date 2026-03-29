@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useId } from "react";
+import { submitContactForm } from "../app/actions";
 
 export default function ContactForm({ variant = "default" }: { variant?: "default" | "dark" }) {
   const [formData, setFormData] = useState({
@@ -10,14 +11,15 @@ export default function ContactForm({ variant = "default" }: { variant?: "defaul
     message: "",
     address: ""
   });
-  
+
   const [errors, setErrors] = useState({
     name: "",
     phone: "",
     message: ""
   });
-  
-  const [status, setStatus] = useState<"idle" | "submitting" | "success">("idle");
+
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [serverError, setServerError] = useState("");
   const uniqueId = useId();
 
   const validate = () => {
@@ -46,54 +48,56 @@ export default function ContactForm({ variant = "default" }: { variant?: "defaul
     return isValid;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
     if (!validate()) return;
-    
-    setStatus("submitting");
 
-    // Simulate API call
-    setTimeout(() => {
+    setStatus("submitting");
+    setServerError("");
+
+    const result = await submitContactForm({
+      name: formData.name,
+      phone: formData.phone,
+      projectType: formData.projectType,
+      address: formData.address,
+      message: formData.message,
+    });
+
+    if (result.success) {
       setStatus("success");
-      setFormData({
-        name: "",
-        phone: "",
-        projectType: "Bangun Rumah Baru",
-        message: "",
-        address: ""
-      });
+      setFormData({ name: "", phone: "", projectType: "Bangun Rumah Baru", message: "", address: "" });
       setErrors({ name: "", phone: "", message: "" });
-      
-      // Reset status after 3 seconds
-      setTimeout(() => setStatus("idle"), 3000);
-    }, 1500);
+      setTimeout(() => setStatus("idle"), 4000);
+    } else {
+      setStatus("error");
+      setServerError(result.error || "Terjadi kesalahan.");
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
-    // Clear error for this field as user types
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
     if (errors[e.target.name as keyof typeof errors]) {
       setErrors(prev => ({ ...prev, [e.target.name]: "" }));
     }
   };
 
   if (variant === "dark") {
-    // This matches the format on the /tentang page
     return (
       <form className="space-y-6" onSubmit={handleSubmit} noValidate>
         {status === "success" && (
-          <div className="bg-green-100 text-green-800 p-4 rounded-sm font-bold border-l-4 border-green-500 mb-6">
+          <div className="bg-green-100 text-green-800 p-4 font-bold border-l-4 border-green-500">
             Pesan berhasil terkirim! Tim kami akan segera menghubungi Anda.
+          </div>
+        )}
+        {status === "error" && (
+          <div className="bg-red-100 text-red-800 p-4 font-bold border-l-4 border-red-500">
+            {serverError}
           </div>
         )}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-2">
             <label htmlFor={`${uniqueId}-name`} className="text-xs font-bold uppercase tracking-widest text-primary">
-              Nama Lengkap
+              Nama Lengkap <span className="text-red-500">*</span>
             </label>
             <input
               id={`${uniqueId}-name`}
@@ -104,11 +108,11 @@ export default function ContactForm({ variant = "default" }: { variant?: "defaul
               placeholder="Masukkan nama Anda"
               type="text"
             />
-            {errors.name && <p className="text-red-500 text-xs font-bold mt-1">{errors.name}</p>}
+            {errors.name && <p className="text-red-500 text-xs font-bold">{errors.name}</p>}
           </div>
           <div className="space-y-2">
             <label htmlFor={`${uniqueId}-phone`} className="text-xs font-bold uppercase tracking-widest text-primary">
-              Nomor Telepon
+              Nomor Telepon <span className="text-red-500">*</span>
             </label>
             <input
               id={`${uniqueId}-phone`}
@@ -119,7 +123,7 @@ export default function ContactForm({ variant = "default" }: { variant?: "defaul
               placeholder="+62 812..."
               type="tel"
             />
-            {errors.phone && <p className="text-red-500 text-xs font-bold mt-1">{errors.phone}</p>}
+            {errors.phone && <p className="text-red-500 text-xs font-bold">{errors.phone}</p>}
           </div>
         </div>
         <div className="space-y-2">
@@ -138,7 +142,7 @@ export default function ContactForm({ variant = "default" }: { variant?: "defaul
         </div>
         <div className="space-y-2">
           <label htmlFor={`${uniqueId}-message`} className="text-xs font-bold uppercase tracking-widest text-primary">
-            Pesan Anda
+            Pesan Anda <span className="text-red-500">*</span>
           </label>
           <textarea
             id={`${uniqueId}-message`}
@@ -149,7 +153,7 @@ export default function ContactForm({ variant = "default" }: { variant?: "defaul
             placeholder="Ceritakan detail kebutuhan Anda"
             rows={4}
           />
-          {errors.message && <p className="text-red-500 text-xs font-bold mt-1">{errors.message}</p>}
+          {errors.message && <p className="text-red-500 text-xs font-bold">{errors.message}</p>}
         </div>
         <button
           className="w-full bg-primary text-on-primary py-5 font-bold tracking-widest uppercase hover:opacity-95 transition-opacity disabled:opacity-50"
@@ -162,12 +166,17 @@ export default function ContactForm({ variant = "default" }: { variant?: "defaul
     );
   }
 
-  // This matches the format on the index /page.tsx
+  // Default variant (homepage)
   return (
     <form className="space-y-4" onSubmit={handleSubmit} noValidate>
       {status === "success" && (
-        <div className="bg-green-100 text-green-800 p-3 text-sm rounded-sm font-bold border-l-4 border-green-500 mb-4">
+        <div className="bg-green-100 text-green-800 p-3 text-sm font-bold border-l-4 border-green-500">
           Pesan berhasil terkirim!
+        </div>
+      )}
+      {status === "error" && (
+        <div className="bg-red-100 text-red-800 p-3 text-sm font-bold border-l-4 border-red-500">
+          {serverError}
         </div>
       )}
       <div className="space-y-1">
