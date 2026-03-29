@@ -1,6 +1,6 @@
 import { prisma } from "../../lib/prisma";
 import { redirect } from "next/navigation";
-import { ContactSubmission, QuoteRequest } from "@prisma/client";
+import { ContactSubmission, QuoteRequest } from "@/generated/client";
 
 async function getSubmissions() {
   const [contacts, quotes] = await Promise.all([
