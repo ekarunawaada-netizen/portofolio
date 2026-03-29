@@ -9,7 +9,8 @@ async function getSubmissions() {
   return { contacts, quotes };
 }
 
-function formatDate(date: Date) {
+function formatDate(date: Date | null | undefined) {
+  if (!date) return "-";
   return date.toLocaleString("id-ID", {
     dateStyle: "medium",
     timeStyle: "short",
