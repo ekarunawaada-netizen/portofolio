@@ -1,4 +1,8 @@
 import Link from "next/link";
+import Image from "next/image";
+import ProjectCard from "../components/ProjectCard";
+import ContactForm from "../components/ContactForm";
+import { featuredProjects } from "../data/mockData";
 
 export default function HomePage() {
   return (
@@ -6,11 +10,13 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="relative min-h-[921px] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            className="w-full h-full object-cover"
+          <Image
+            fill
+            sizes="100vw"
+            className="object-cover"
             alt="Modern luxury minimalist house architecture"
             src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhbfoddI7mpKTX5IP_9ZDJejO4YVlKBH4qjzVpw0ZjEk47U1ntB5sh36W0wQRRcsqdf4jMRKtqvgJ_AG-DFP2c3MrhPwyk0QGlWYu8g_T8T3eh7kH8guXcHHjMcoqmCW10SjAN3_jknKcszaknQdjozSwo1V8TSq2dJqJfX_eWwa3In_qU__C5xzLRjFnDGTPrnNLX1AyeqpmeS5cvU4mSU-DQYHaMZfHt6H5NAcVEBlnFECybsRGkvKJbJiDuLC3yDX214x6LbLY"
+            priority
           />
           <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/40 to-transparent" />
         </div>
@@ -140,115 +146,9 @@ export default function HomePage() {
           </h2>
 
           <div className="masonry-grid">
-            {/* Featured Project 1 (Large) */}
-            <div className="col-span-12 md:col-span-8 group relative overflow-hidden bg-primary-container min-h-[500px]">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-60 group-hover:opacity-80"
-                alt="The Stone Haven Villa"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBv9hBDrvD-qaoG5RXqzz6AnMv1gggRjVnGgpnTEGCwRlF00qmjAAn2nZMgGs_zzur3I1OxOtz7Ng1N2TL1NQa6SMmuBjhBa55FCIRBDZFRz6NDDvD0PQiNNpkGeN9iDdvUk3KVtTVIRyZsbjhIPHcCjAoWXYy9gPvJEchFAjUQDIcIAoJtH6_j5c01XWHAz93EVP7qNpX3jIP0-v2mLShleX4HzbGu4QzbFHSuvrfGwChSwEsSlrNeReb7O3BYJM2X9ubM9p7TXT8"
-              />
-              <div className="absolute bottom-0 left-0 p-8 w-full bg-gradient-to-t from-primary via-primary/50 to-transparent">
-                <div className="flex justify-between items-end">
-                  <div>
-                    <span className="text-on-tertiary-container font-bold text-xs uppercase tracking-widest mb-2 block">
-                      Residensial Lux
-                    </span>
-                    <h4 className="text-3xl font-bold text-white font-headline leading-tight">
-                      The Stone Haven Villa
-                    </h4>
-                  </div>
-                  <Link
-                    href="/galeri"
-                    className="bg-white text-primary px-6 py-3 font-bold text-sm tracking-tighter flex items-center gap-2 hover:bg-on-tertiary-container hover:text-white transition-colors"
-                  >
-                    Lihat Selengkapnya{" "}
-                    <span className="material-symbols-outlined text-sm">
-                      open_in_new
-                    </span>
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            {/* Project 2 */}
-            <div className="col-span-12 md:col-span-4 group relative overflow-hidden bg-primary-container min-h-[500px]">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-60 group-hover:opacity-80"
-                alt="Nexus Office Renovation"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuHKLRJXFlssT1nZJ1vBFnLiRoFB697TX3eSNaMdtzOLL8GiNxHqcN-uv8wcNc9x42JiqC5i_6frpKiBNg1XFgPew1p5s39bwThZYeLNybqILI75qSIcMgfRTDIyG5ypjJdcd0528uUJYQVJGxBPEZUPDXsiXIiXgJxkii6HGgTAwl0_4ZKY0HIcu-8DYFJ2q2P0l-AMrwqyTGW3VaI1LHYxue6M88xgkJViUh5gQApGiXfxSrndgYHo6N9xfv-8WavmG2esVKHM4"
-              />
-              <div className="absolute inset-0 flex flex-col justify-end p-8 bg-gradient-to-t from-primary/80 to-transparent">
-                <span className="text-on-tertiary-container font-bold text-xs uppercase tracking-widest mb-2 block">
-                  Komersial
-                </span>
-                <h4 className="text-xl font-bold text-white font-headline mb-4">
-                  Nexus Office Renovation
-                </h4>
-                <Link
-                  href="/galeri"
-                  className="text-white font-bold text-xs underline underline-offset-4 decoration-on-tertiary-container"
-                >
-                  Detail Proyek
-                </Link>
-              </div>
-            </div>
-
-            {/* Project 3 */}
-            <div className="col-span-12 md:col-span-4 group relative overflow-hidden bg-primary-container min-h-[400px]">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-60 group-hover:opacity-80"
-                alt="Minimalist Mono House"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbMA9FuZ6eedkQuDaYcOvhe9N3wQK461nrqEZht6tdlSj780TgUhxgZhPahkq4KW160ZctdnAB9BS1mHw2ZCSt8_2UpmRqdKgh1glmPcZoTzaXyY2tCub_qUJQ0OurgCj-u16gFkzMNQlBAiFiJQ0fRmtNAUjdrPTHW013-1U_6b_n_f9A5EAhrDcMW7lzZT1q3vLbmwFv7ueXGt1CFpggrytjE5G_fS0r4L1QYg5OLFNssnisOjdauWNwM4HxL5BY1BazF0CX5Jk"
-              />
-              <div className="absolute inset-0 flex flex-col justify-end p-8 bg-gradient-to-t from-primary/80 to-transparent">
-                <span className="text-on-tertiary-container font-bold text-xs uppercase tracking-widest mb-2 block">
-                  Bangun Baru
-                </span>
-                <h4 className="text-xl font-bold text-white font-headline mb-4">
-                  Minimalist Mono House
-                </h4>
-                <Link
-                  href="/galeri"
-                  className="text-white font-bold text-xs underline underline-offset-4 decoration-on-tertiary-container"
-                >
-                  Detail Proyek
-                </Link>
-              </div>
-            </div>
-
-            {/* Featured Project 4 (Large) */}
-            <div className="col-span-12 md:col-span-8 group relative overflow-hidden bg-primary-container min-h-[400px]">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-60 group-hover:opacity-80"
-                alt="Grand Heritage Lobby"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWk1x0WdqNHKRMWRDgRrfzNUmOYgSStJ7EfHZr_evcvk_NpDcvqHAvVBtcOdMSEWMNeF-v6Vns6XZzP1Jnf0PccmFIVpFQLd7pe6b3oH9g0SNHzyFlz_irdRrfAgSRTrpc49wKWDfWSTcvo0-HH79WrYT4S9u6oUZrmwhOWCNjG1Nnl5tdaLXkJXDCcmViUX1aLpX_zXy3qE6n0cT9rISQNKK2LC4AwkK1gdVj5acNgwBm0S4m69ZllSBjXYc62wNVutejwVi__7k"
-              />
-              <div className="absolute bottom-0 right-0 p-8 w-full md:w-2/3 bg-white/95 backdrop-blur-sm border-t-4 border-on-tertiary-container">
-                <span className="text-primary font-bold text-xs uppercase tracking-widest mb-1 block">
-                  Interior Hospitality
-                </span>
-                <h4 className="text-2xl font-black text-primary font-headline mb-4">
-                  Grand Heritage Lobby
-                </h4>
-                <p className="text-secondary text-sm mb-6">
-                  Proyek renovasi interior seluas 500m2 dengan fokus pada
-                  restorasi material klasik dan instalasi kelistrikan modern.
-                </p>
-                <Link
-                  href="/galeri"
-                  className="inline-flex items-center gap-2 text-primary font-black uppercase text-xs tracking-widest hover:text-on-tertiary-container transition-colors"
-                >
-                  Lihat Selengkapnya{" "}
-                  <span className="material-symbols-outlined text-sm">
-                    trending_flat
-                  </span>
-                </Link>
-              </div>
-            </div>
+            {featuredProjects.map((project) => (
+              <ProjectCard key={project.id} project={project} />
+            ))}
           </div>
         </div>
       </section>
@@ -290,46 +190,7 @@ export default function HomePage() {
             <h4 className="text-2xl font-bold text-primary mb-6 font-headline">
               Kirim Pesan Cepat
             </h4>
-            <form className="space-y-4">
-              <div className="space-y-1">
-                <label className="text-[10px] font-bold text-secondary uppercase tracking-widest">
-                  Nama Lengkap
-                </label>
-                <input
-                  className="w-full bg-surface-container-high border-none focus:ring-2 focus:ring-primary h-12 px-4 text-sm"
-                  placeholder="Contoh: Budi Santoso"
-                  type="text"
-                />
-              </div>
-              <div className="space-y-1">
-                <label className="text-[10px] font-bold text-secondary uppercase tracking-widest">
-                  Nomor WhatsApp
-                </label>
-                <input
-                  className="w-full bg-surface-container-high border-none focus:ring-2 focus:ring-primary h-12 px-4 text-sm"
-                  placeholder="0812-xxxx-xxxx"
-                  type="tel"
-                />
-              </div>
-              <div className="space-y-1">
-                <label className="text-[10px] font-bold text-secondary uppercase tracking-widest">
-                  Jenis Proyek
-                </label>
-                <select className="w-full bg-surface-container-high border-none focus:ring-2 focus:ring-primary h-12 px-4 text-sm">
-                  <option>Bangun Rumah Baru</option>
-                  <option>Renovasi Interior</option>
-                  <option>Pekerjaan Atap/Struktur</option>
-                  <option>Lainnya</option>
-                </select>
-              </div>
-              <button
-                className="w-full bg-on-tertiary-container text-white font-bold py-4 mt-4 flex items-center justify-center gap-2 hover:brightness-110 transition-all"
-                type="submit"
-              >
-                Dapatkan Penawaran{" "}
-                <span className="material-symbols-outlined">send</span>
-              </button>
-            </form>
+            <ContactForm />
           </div>
         </div>
       </section>

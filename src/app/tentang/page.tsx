@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Image from "next/image";
+import ContactForm from "../../components/ContactForm";
 
 export const metadata: Metadata = {
   title: "Tentang & Kontak - MASONRY ARCHITECT",
@@ -37,15 +39,16 @@ export default function TentangPage() {
         <div className="max-w-7xl mx-auto px-8">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
             <div className="md:col-span-7 relative">
-              <div className="aspect-[4/5] md:aspect-[16/10] bg-surface-container overflow-hidden">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+              <div className="aspect-[4/5] md:aspect-[16/10] bg-surface-container overflow-hidden relative">
+                <Image
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
                   alt="Professional construction team"
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuaMX-9RpRPz9W_vBS4DYqNY4Gvy3rHLWJrTHY5yUdC2oBOn5hTPLOaxi_qrduS4-YKjqjdzFHJLchjdRvgb5CijenrPacLz7XO_pUXU2aWqAmr_cpzhbM2zRLRwVgc0L08hn6MUcg94z-3zC-qRyDjJLQzPPAfyXHiycWPU8tHN4c0aKxZivlatSWbGC34e-U-1i-hHGGH3xQm82l2rfgjgwkLuKf4zyT1YB8IfIV52Vs6M3yY0GfO88vHi-7GTzGImLUKxaZr3k"
                 />
               </div>
-              <div className="absolute -bottom-8 -right-8 bg-primary p-10 text-on-primary hidden lg:block">
+              <div className="absolute -bottom-8 -right-8 bg-primary p-10 text-on-primary hidden lg:block z-10">
                 <div className="text-4xl font-headline font-black mb-1 tracking-tighter">
                   15+
                 </div>
@@ -165,56 +168,7 @@ export default function TentangPage() {
                 Mulai diskusi proyek impian Anda hari ini. Tim kami siap merespons
                 dalam 24 jam.
               </p>
-              <form className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-xs font-bold uppercase tracking-widest text-primary">
-                      Nama Lengkap
-                    </label>
-                    <input
-                      className="w-full bg-surface-container-high border-none p-4 focus:ring-2 focus:ring-primary text-primary transition-all"
-                      placeholder="Masukkan nama Anda"
-                      type="text"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-xs font-bold uppercase tracking-widest text-primary">
-                      Nomor Telepon
-                    </label>
-                    <input
-                      className="w-full bg-surface-container-high border-none p-4 focus:ring-2 focus:ring-primary text-primary transition-all"
-                      placeholder="+62 812..."
-                      type="tel"
-                    />
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-widest text-primary">
-                    Alamat Proyek
-                  </label>
-                  <input
-                    className="w-full bg-surface-container-high border-none p-4 focus:ring-2 focus:ring-primary text-primary transition-all"
-                    placeholder="Lokasi pengerjaan"
-                    type="text"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-widest text-primary">
-                    Pesan Anda
-                  </label>
-                  <textarea
-                    className="w-full bg-surface-container-high border-none p-4 focus:ring-2 focus:ring-primary text-primary transition-all"
-                    placeholder="Ceritakan detail kebutuhan Anda"
-                    rows={4}
-                  />
-                </div>
-                <button
-                  className="w-full bg-primary text-on-primary py-5 font-bold tracking-widest uppercase hover:opacity-95 transition-opacity"
-                  type="submit"
-                >
-                  Kirim Permintaan
-                </button>
-              </form>
+              <ContactForm variant="dark" />
             </div>
 
             {/* Actions & Info Side */}
@@ -293,14 +247,15 @@ export default function TentangPage() {
 
               {/* Map Preview Area */}
               <div className="mt-12 h-64 bg-surface-container-highest relative overflow-hidden">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <Image
+                  fill
+                  sizes="100vw"
                   className="w-full h-full object-cover opacity-40"
                   alt="Map Preview"
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuCosh6z0SA3aNW7A5LlDrEHbntjA3weR2VSotwQ_Bdag0yGyeRBYwdhFI_N3Yb7LIqqVdWZ6AiufnRMUW6Ypdi0mAioBTb3-wn_qJYZOdbJNU-3moISpcH5n2GmAfELq5UpWeOg3MXhP9py8yDJgtAIgtBlCQ_VoIvHfNcntfuUk11m1Exlgrpdi1WjV6OSoaEa8qTWJyjQ8TT61FOUGIEbncGfI_qCTPBEUBBLpPEjkaFo29iZft_GA4i5cnB92Suqs89IK1QyTt4"
                 />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="bg-primary text-on-primary p-4 shadow-xl">
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <div className="bg-primary text-on-primary p-4 shadow-xl pointer-events-auto">
                     <div className="font-bold text-sm tracking-widest uppercase">
                       Visit Workshop
                     </div>
