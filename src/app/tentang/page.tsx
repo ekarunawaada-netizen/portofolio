@@ -180,7 +180,7 @@ export default function TentangPage() {
                   </h3>
                   <div className="grid grid-cols-1 gap-4">
                     <a
-                      href="https://wa.me/6281234567890?text=Halo%20Masonry%20Architect"
+                      href="https://wa.me/62089523888644?text=Halo%20Masonry%20Architect"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center justify-between p-6 bg-on-tertiary-container text-white hover:opacity-90 transition-all group"
