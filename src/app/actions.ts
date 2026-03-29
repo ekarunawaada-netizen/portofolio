@@ -1,6 +1,6 @@
 'use server'
 
-import { createServerClient } from "../lib/supabase";
+import { prisma } from "../lib/prisma";
 
 export type ContactFormData = {
   name: string;
@@ -25,44 +25,38 @@ export type ActionResult = {
 
 // For: ContactForm on /page.tsx and /tentang
 export async function submitContactForm(data: ContactFormData): Promise<ActionResult> {
-  const supabase = createServerClient();
-
-  const { error } = await supabase
-    .from("contact_submissions")
-    .insert({
-      name: data.name.trim(),
-      phone: data.phone.trim(),
-      project_type: data.projectType || "Bangun Rumah Baru",
-      address: data.address?.trim() || null,
-      message: data.message?.trim() || null,
+  try {
+    await prisma.contactSubmission.create({
+      data: {
+        name: data.name.trim(),
+        phone: data.phone.trim(),
+        projectType: data.projectType || "Bangun Rumah Baru",
+        address: data.address?.trim() || null,
+        message: data.message?.trim() || null,
+      },
     });
-
-  if (error) {
-    console.error("[submitContactForm] Supabase error:", error.message);
+    return { success: true };
+  } catch (error) {
+    console.error("[submitContactForm] Prisma error:", error);
     return { success: false, error: "Gagal mengirim pesan. Silakan coba lagi." };
   }
-
-  return { success: true };
 }
 
 // For: RequestQuoteModal on /layanan
 export async function submitQuoteRequest(data: QuoteRequestData): Promise<ActionResult> {
-  const supabase = createServerClient();
-
-  const { error } = await supabase
-    .from("quote_requests")
-    .insert({
-      name: data.name.trim(),
-      phone: data.phone.trim(),
-      service: data.service.trim(),
-      address: data.address?.trim() || null,
-      message: data.message?.trim() || null,
+  try {
+    await prisma.quoteRequest.create({
+      data: {
+        name: data.name.trim(),
+        phone: data.phone.trim(),
+        service: data.service.trim(),
+        address: data.address?.trim() || null,
+        message: data.message?.trim() || null,
+      },
     });
-
-  if (error) {
-    console.error("[submitQuoteRequest] Supabase error:", error.message);
+    return { success: true };
+  } catch (error) {
+    console.error("[submitQuoteRequest] Prisma error:", error);
     return { success: false, error: "Gagal mengirim permintaan. Silakan coba lagi." };
   }
-
-  return { success: true };
 }

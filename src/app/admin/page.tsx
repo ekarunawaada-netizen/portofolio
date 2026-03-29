@@ -1,31 +1,16 @@
-import { createServerClient } from "../../lib/supabase";
-import { cookies } from "next/headers";
+import { prisma } from "../../lib/prisma";
 import { redirect } from "next/navigation";
 
 async function getSubmissions() {
-  const supabase = createServerClient();
-
   const [contacts, quotes] = await Promise.all([
-    supabase
-      .from("contact_submissions")
-      .select("*")
-      .order("created_at", { ascending: false }),
-    supabase
-      .from("quote_requests")
-      .select("*")
-      .order("created_at", { ascending: false }),
+    prisma.contactSubmission.findMany({ orderBy: { createdAt: "desc" } }),
+    prisma.quoteRequest.findMany({ orderBy: { createdAt: "desc" } }),
   ]);
-
-  return {
-    contacts: contacts.data ?? [],
-    quotes: quotes.data ?? [],
-    contactError: contacts.error,
-    quoteError: quotes.error,
-  };
+  return { contacts, quotes };
 }
 
-function formatDate(iso: string) {
-  return new Date(iso).toLocaleString("id-ID", {
+function formatDate(date: Date) {
+  return date.toLocaleString("id-ID", {
     dateStyle: "medium",
     timeStyle: "short",
   });
@@ -39,7 +24,6 @@ export default async function AdminPage({
   const params = await searchParams;
   const adminPassword = process.env.ADMIN_PASSWORD ?? "admin123";
 
-  // Simple password gate via query string /?auth=yourpassword
   if (params.auth !== adminPassword) {
     redirect("/admin/login");
   }
@@ -85,13 +69,13 @@ export default async function AdminPage({
                   </tr>
                 </thead>
                 <tbody>
-                  {quotes.map((q: Record<string, string>, i: number) => (
+                  {quotes.map((q, i) => (
                     <tr
                       key={q.id}
                       className={i % 2 === 0 ? "bg-white" : "bg-surface-container-low"}
                     >
                       <td className="px-4 py-3 text-secondary whitespace-nowrap">
-                        {formatDate(q.created_at)}
+                        {formatDate(q.createdAt)}
                       </td>
                       <td className="px-4 py-3 font-bold text-primary">{q.name}</td>
                       <td className="px-4 py-3">
@@ -109,9 +93,9 @@ export default async function AdminPage({
                           {q.service}
                         </span>
                       </td>
-                      <td className="px-4 py-3 text-secondary">{q.address || "-"}</td>
+                      <td className="px-4 py-3 text-secondary">{q.address ?? "-"}</td>
                       <td className="px-4 py-3 text-secondary max-w-xs truncate">
-                        {q.message || "-"}
+                        {q.message ?? "-"}
                       </td>
                     </tr>
                   ))}
@@ -142,13 +126,13 @@ export default async function AdminPage({
                   </tr>
                 </thead>
                 <tbody>
-                  {contacts.map((c: Record<string, string>, i: number) => (
+                  {contacts.map((c, i) => (
                     <tr
                       key={c.id}
                       className={i % 2 === 0 ? "bg-white" : "bg-surface-container-low"}
                     >
                       <td className="px-4 py-3 text-secondary whitespace-nowrap">
-                        {formatDate(c.created_at)}
+                        {formatDate(c.createdAt)}
                       </td>
                       <td className="px-4 py-3 font-bold text-primary">{c.name}</td>
                       <td className="px-4 py-3">
@@ -161,10 +145,10 @@ export default async function AdminPage({
                           {c.phone}
                         </a>
                       </td>
-                      <td className="px-4 py-3">{c.project_type || "-"}</td>
-                      <td className="px-4 py-3 text-secondary">{c.address || "-"}</td>
+                      <td className="px-4 py-3">{c.projectType ?? "-"}</td>
+                      <td className="px-4 py-3 text-secondary">{c.address ?? "-"}</td>
                       <td className="px-4 py-3 text-secondary max-w-xs truncate">
-                        {c.message || "-"}
+                        {c.message ?? "-"}
                       </td>
                     </tr>
                   ))}
