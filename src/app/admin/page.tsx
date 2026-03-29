@@ -1,5 +1,6 @@
 import { prisma } from "../../lib/prisma";
 import { redirect } from "next/navigation";
+import { ContactSubmission, QuoteRequest } from "@prisma/client";
 
 async function getSubmissions() {
   const [contacts, quotes] = await Promise.all([
@@ -70,7 +71,7 @@ export default async function AdminPage({
                   </tr>
                 </thead>
                 <tbody>
-                  {quotes.map((q, i) => (
+                  {quotes.map((q: QuoteRequest, i: number) => (
                     <tr
                       key={q.id}
                       className={i % 2 === 0 ? "bg-white" : "bg-surface-container-low"}
@@ -127,7 +128,7 @@ export default async function AdminPage({
                   </tr>
                 </thead>
                 <tbody>
-                  {contacts.map((c, i) => (
+                  {contacts.map((c: ContactSubmission, i: number) => (
                     <tr
                       key={c.id}
                       className={i % 2 === 0 ? "bg-white" : "bg-surface-container-low"}
