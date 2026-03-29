@@ -204,7 +204,7 @@ export default function ContactForm({ variant = "default" }: { variant?: "defaul
           value={formData.phone}
           onChange={handleChange}
           className={`w-full bg-surface-container-high border-none focus:ring-2 focus:ring-primary h-12 px-4 text-sm ${errors.phone ? 'ring-2 ring-red-500' : ''}`}
-          placeholder="0812-xxxx-xxxx"
+          placeholder="0858-xxxx-xxxx"
           type="tel"
         />
         {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}

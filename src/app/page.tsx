@@ -34,7 +34,7 @@ export default function HomePage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
-                href="https://wa.me/62089523888644?text=Halo%20Masonry%20Architect%2C%20saya%20tertarik%20konsultasi%20gratis."
+                href="https://wa.me/6285857824978?text=Halo%20Masonry%20Architect%2C%20saya%20tertarik%20konsultasi%20gratis."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-3 bg-on-tertiary-container text-white px-8 py-4 font-bold rounded-sm hover:opacity-90 transition-all shadow-xl shadow-on-tertiary-container/20"

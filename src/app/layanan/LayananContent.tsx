@@ -255,7 +255,7 @@ export default function LayananContent() {
             </div>
             <div className="relative z-10 flex flex-col gap-4 w-full md:w-auto">
               <a
-                href="https://wa.me/62089523888644?text=Halo%20Masonry%20Architect%2C%20saya%20tertarik%20menggunakan%20jasa%20Anda."
+                href="https://wa.me/6285857824978?text=Halo%20Masonry%20Architect%2C%20saya%20tertarik%20menggunakan%20jasa%20Anda."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-on-tertiary-container text-white px-10 py-5 font-headline font-bold uppercase tracking-widest text-sm shadow-xl shadow-on-tertiary-container/20 hover:-translate-y-1 transition-all text-center"

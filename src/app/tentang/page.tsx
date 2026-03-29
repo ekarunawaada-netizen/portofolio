@@ -180,7 +180,7 @@ export default function TentangPage() {
                   </h3>
                   <div className="grid grid-cols-1 gap-4">
                     <a
-                      href="https://wa.me/62089523888644?text=Halo%20Masonry%20Architect"
+                      href="https://wa.me/6285857824978?text=Halo%20Masonry%20Architect"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center justify-between p-6 bg-on-tertiary-container text-white hover:opacity-90 transition-all group"
@@ -192,7 +192,7 @@ export default function TentangPage() {
                         <div className="text-left">
                           <div className="font-bold">WhatsApp Business</div>
                           <div className="text-sm opacity-80">
-                            +62 812 3456 7890
+                            +62 858-5782-4978
                           </div>
                         </div>
                       </div>

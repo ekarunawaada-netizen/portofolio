@@ -131,7 +131,7 @@ export default function RequestQuoteModal({ isOpen, onClose, serviceName }: Requ
               </p>
               <div className="flex gap-3 mt-4">
                 <a
-                  href={`https://wa.me/62089523888644?text=Halo%20saya%20sudah%20mengisi%20form%20untuk%20${encodeURIComponent(serviceName)}`}
+                  href={`https://wa.me/6285857824978?text=Halo%20saya%20sudah%20mengisi%20form%20untuk%20${encodeURIComponent(serviceName)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-on-tertiary-container text-white px-6 py-3 font-bold text-sm flex items-center gap-2 hover:brightness-110 transition-all"
@@ -190,7 +190,7 @@ export default function RequestQuoteModal({ isOpen, onClose, serviceName }: Requ
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  placeholder="0812-xxxx-xxxx"
+                  placeholder="0858-xxxx-xxxx"
                   type="tel"
                   className={`w-full bg-surface-container-high border-none p-4 focus:ring-2 focus:ring-primary text-primary transition-all ${errors.phone ? "ring-2 ring-red-500" : ""}`}
                 />
@@ -250,7 +250,7 @@ export default function RequestQuoteModal({ isOpen, onClose, serviceName }: Requ
               <p className="text-center text-xs text-secondary">
                 Atau hubungi langsung via{" "}
                 <a
-                  href="https://wa.me/62089523888644"
+                  href="https://wa.me/6285857824978"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-on-tertiary-container font-bold underline"

@@ -1,6 +1,7 @@
 'use server'
 
 import { prisma } from "@/lib/prisma";
+import { revalidatePath } from "next/cache";
 
 export type ContactFormData = {
   name: string;
@@ -23,6 +24,8 @@ export type ActionResult = {
   error?: string;
 };
 
+// --- CLIENT SUBMISSION ACTIONS ---
+
 // For: ContactForm on /page.tsx and /tentang
 export async function submitContactForm(data: ContactFormData): Promise<ActionResult> {
   try {
@@ -35,6 +38,7 @@ export async function submitContactForm(data: ContactFormData): Promise<ActionRe
         message: data.message?.trim() || null,
       },
     });
+    revalidatePath("/admin");
     return { success: true };
   } catch (error) {
     console.error("[submitContactForm] Prisma error:", error);
@@ -54,9 +58,62 @@ export async function submitQuoteRequest(data: QuoteRequestData): Promise<Action
         message: data.message?.trim() || null,
       },
     });
+    revalidatePath("/admin");
     return { success: true };
   } catch (error) {
     console.error("[submitQuoteRequest] Prisma error:", error);
     return { success: false, error: "Gagal mengirim permintaan. Silakan coba lagi." };
+  }
+}
+
+// --- ADMIN MANAGEMENT ACTIONS ---
+
+export async function markContactAsRead(id: string) {
+  try {
+    await prisma.contactSubmission.update({
+      where: { id },
+      data: { isRead: true, status: "dibaca" },
+    });
+    revalidatePath("/admin");
+    return { success: true };
+  } catch (error) {
+    console.error("[markContactAsRead] Error:", error);
+    return { success: false };
+  }
+}
+
+export async function deleteContactSubmission(id: string) {
+  try {
+    await prisma.contactSubmission.delete({ where: { id } });
+    revalidatePath("/admin");
+    return { success: true };
+  } catch (error) {
+    console.error("[deleteContactSubmission] Error:", error);
+    return { success: false };
+  }
+}
+
+export async function markQuoteAsRead(id: string) {
+  try {
+    await prisma.quoteRequest.update({
+      where: { id },
+      data: { isRead: true, status: "dibaca" },
+    });
+    revalidatePath("/admin");
+    return { success: true };
+  } catch (error) {
+    console.error("[markQuoteAsRead] Error:", error);
+    return { success: false };
+  }
+}
+
+export async function deleteQuoteRequest(id: string) {
+  try {
+    await prisma.quoteRequest.delete({ where: { id } });
+    revalidatePath("/admin");
+    return { success: true };
+  } catch (error) {
+    console.error("[deleteQuoteRequest] Error:", error);
+    return { success: false };
   }
 }

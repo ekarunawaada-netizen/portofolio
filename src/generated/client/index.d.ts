@@ -1065,6 +1065,8 @@ export namespace Prisma {
     projectType: string | null
     address: string | null
     message: string | null
+    isRead: boolean | null
+    status: string | null
     createdAt: Date | null
   }
 
@@ -1075,6 +1077,8 @@ export namespace Prisma {
     projectType: string | null
     address: string | null
     message: string | null
+    isRead: boolean | null
+    status: string | null
     createdAt: Date | null
   }
 
@@ -1085,6 +1089,8 @@ export namespace Prisma {
     projectType: number
     address: number
     message: number
+    isRead: number
+    status: number
     createdAt: number
     _all: number
   }
@@ -1097,6 +1103,8 @@ export namespace Prisma {
     projectType?: true
     address?: true
     message?: true
+    isRead?: true
+    status?: true
     createdAt?: true
   }
 
@@ -1107,6 +1115,8 @@ export namespace Prisma {
     projectType?: true
     address?: true
     message?: true
+    isRead?: true
+    status?: true
     createdAt?: true
   }
 
@@ -1117,6 +1127,8 @@ export namespace Prisma {
     projectType?: true
     address?: true
     message?: true
+    isRead?: true
+    status?: true
     createdAt?: true
     _all?: true
   }
@@ -1200,6 +1212,8 @@ export namespace Prisma {
     projectType: string | null
     address: string | null
     message: string | null
+    isRead: boolean
+    status: string
     createdAt: Date | null
     _count: ContactSubmissionCountAggregateOutputType | null
     _min: ContactSubmissionMinAggregateOutputType | null
@@ -1227,6 +1241,8 @@ export namespace Prisma {
     projectType?: boolean
     address?: boolean
     message?: boolean
+    isRead?: boolean
+    status?: boolean
     createdAt?: boolean
   }, ExtArgs["result"]["contactSubmission"]>
 
@@ -1237,6 +1253,8 @@ export namespace Prisma {
     projectType?: boolean
     address?: boolean
     message?: boolean
+    isRead?: boolean
+    status?: boolean
     createdAt?: boolean
   }, ExtArgs["result"]["contactSubmission"]>
 
@@ -1247,6 +1265,8 @@ export namespace Prisma {
     projectType?: boolean
     address?: boolean
     message?: boolean
+    isRead?: boolean
+    status?: boolean
     createdAt?: boolean
   }, ExtArgs["result"]["contactSubmission"]>
 
@@ -1257,10 +1277,12 @@ export namespace Prisma {
     projectType?: boolean
     address?: boolean
     message?: boolean
+    isRead?: boolean
+    status?: boolean
     createdAt?: boolean
   }
 
-  export type ContactSubmissionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "phone" | "projectType" | "address" | "message" | "createdAt", ExtArgs["result"]["contactSubmission"]>
+  export type ContactSubmissionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "phone" | "projectType" | "address" | "message" | "isRead" | "status" | "createdAt", ExtArgs["result"]["contactSubmission"]>
 
   export type $ContactSubmissionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "ContactSubmission"
@@ -1272,6 +1294,8 @@ export namespace Prisma {
       projectType: string | null
       address: string | null
       message: string | null
+      isRead: boolean
+      status: string
       createdAt: Date | null
     }, ExtArgs["result"]["contactSubmission"]>
     composites: {}
@@ -1702,6 +1726,8 @@ export namespace Prisma {
     readonly projectType: FieldRef<"ContactSubmission", 'String'>
     readonly address: FieldRef<"ContactSubmission", 'String'>
     readonly message: FieldRef<"ContactSubmission", 'String'>
+    readonly isRead: FieldRef<"ContactSubmission", 'Boolean'>
+    readonly status: FieldRef<"ContactSubmission", 'String'>
     readonly createdAt: FieldRef<"ContactSubmission", 'DateTime'>
   }
     
@@ -2091,6 +2117,8 @@ export namespace Prisma {
     service: string | null
     address: string | null
     message: string | null
+    isRead: boolean | null
+    status: string | null
     createdAt: Date | null
   }
 
@@ -2101,6 +2129,8 @@ export namespace Prisma {
     service: string | null
     address: string | null
     message: string | null
+    isRead: boolean | null
+    status: string | null
     createdAt: Date | null
   }
 
@@ -2111,6 +2141,8 @@ export namespace Prisma {
     service: number
     address: number
     message: number
+    isRead: number
+    status: number
     createdAt: number
     _all: number
   }
@@ -2123,6 +2155,8 @@ export namespace Prisma {
     service?: true
     address?: true
     message?: true
+    isRead?: true
+    status?: true
     createdAt?: true
   }
 
@@ -2133,6 +2167,8 @@ export namespace Prisma {
     service?: true
     address?: true
     message?: true
+    isRead?: true
+    status?: true
     createdAt?: true
   }
 
@@ -2143,6 +2179,8 @@ export namespace Prisma {
     service?: true
     address?: true
     message?: true
+    isRead?: true
+    status?: true
     createdAt?: true
     _all?: true
   }
@@ -2226,6 +2264,8 @@ export namespace Prisma {
     service: string
     address: string | null
     message: string | null
+    isRead: boolean
+    status: string
     createdAt: Date | null
     _count: QuoteRequestCountAggregateOutputType | null
     _min: QuoteRequestMinAggregateOutputType | null
@@ -2253,6 +2293,8 @@ export namespace Prisma {
     service?: boolean
     address?: boolean
     message?: boolean
+    isRead?: boolean
+    status?: boolean
     createdAt?: boolean
   }, ExtArgs["result"]["quoteRequest"]>
 
@@ -2263,6 +2305,8 @@ export namespace Prisma {
     service?: boolean
     address?: boolean
     message?: boolean
+    isRead?: boolean
+    status?: boolean
     createdAt?: boolean
   }, ExtArgs["result"]["quoteRequest"]>
 
@@ -2273,6 +2317,8 @@ export namespace Prisma {
     service?: boolean
     address?: boolean
     message?: boolean
+    isRead?: boolean
+    status?: boolean
     createdAt?: boolean
   }, ExtArgs["result"]["quoteRequest"]>
 
@@ -2283,10 +2329,12 @@ export namespace Prisma {
     service?: boolean
     address?: boolean
     message?: boolean
+    isRead?: boolean
+    status?: boolean
     createdAt?: boolean
   }
 
-  export type QuoteRequestOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "phone" | "service" | "address" | "message" | "createdAt", ExtArgs["result"]["quoteRequest"]>
+  export type QuoteRequestOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "phone" | "service" | "address" | "message" | "isRead" | "status" | "createdAt", ExtArgs["result"]["quoteRequest"]>
 
   export type $QuoteRequestPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "QuoteRequest"
@@ -2298,6 +2346,8 @@ export namespace Prisma {
       service: string
       address: string | null
       message: string | null
+      isRead: boolean
+      status: string
       createdAt: Date | null
     }, ExtArgs["result"]["quoteRequest"]>
     composites: {}
@@ -2728,6 +2778,8 @@ export namespace Prisma {
     readonly service: FieldRef<"QuoteRequest", 'String'>
     readonly address: FieldRef<"QuoteRequest", 'String'>
     readonly message: FieldRef<"QuoteRequest", 'String'>
+    readonly isRead: FieldRef<"QuoteRequest", 'Boolean'>
+    readonly status: FieldRef<"QuoteRequest", 'String'>
     readonly createdAt: FieldRef<"QuoteRequest", 'DateTime'>
   }
     
@@ -4116,6 +4168,8 @@ export namespace Prisma {
     projectType: 'projectType',
     address: 'address',
     message: 'message',
+    isRead: 'isRead',
+    status: 'status',
     createdAt: 'createdAt'
   };
 
@@ -4129,6 +4183,8 @@ export namespace Prisma {
     service: 'service',
     address: 'address',
     message: 'message',
+    isRead: 'isRead',
+    status: 'status',
     createdAt: 'createdAt'
   };
 
@@ -4183,6 +4239,13 @@ export namespace Prisma {
    * Reference to a field of type 'String[]'
    */
   export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
 
 
@@ -4255,6 +4318,8 @@ export namespace Prisma {
     projectType?: StringNullableFilter<"ContactSubmission"> | string | null
     address?: StringNullableFilter<"ContactSubmission"> | string | null
     message?: StringNullableFilter<"ContactSubmission"> | string | null
+    isRead?: BoolFilter<"ContactSubmission"> | boolean
+    status?: StringFilter<"ContactSubmission"> | string
     createdAt?: DateTimeNullableFilter<"ContactSubmission"> | Date | string | null
   }
 
@@ -4265,6 +4330,8 @@ export namespace Prisma {
     projectType?: SortOrderInput | SortOrder
     address?: SortOrderInput | SortOrder
     message?: SortOrderInput | SortOrder
+    isRead?: SortOrder
+    status?: SortOrder
     createdAt?: SortOrderInput | SortOrder
   }
 
@@ -4278,6 +4345,8 @@ export namespace Prisma {
     projectType?: StringNullableFilter<"ContactSubmission"> | string | null
     address?: StringNullableFilter<"ContactSubmission"> | string | null
     message?: StringNullableFilter<"ContactSubmission"> | string | null
+    isRead?: BoolFilter<"ContactSubmission"> | boolean
+    status?: StringFilter<"ContactSubmission"> | string
     createdAt?: DateTimeNullableFilter<"ContactSubmission"> | Date | string | null
   }, "id">
 
@@ -4288,6 +4357,8 @@ export namespace Prisma {
     projectType?: SortOrderInput | SortOrder
     address?: SortOrderInput | SortOrder
     message?: SortOrderInput | SortOrder
+    isRead?: SortOrder
+    status?: SortOrder
     createdAt?: SortOrderInput | SortOrder
     _count?: ContactSubmissionCountOrderByAggregateInput
     _max?: ContactSubmissionMaxOrderByAggregateInput
@@ -4304,6 +4375,8 @@ export namespace Prisma {
     projectType?: StringNullableWithAggregatesFilter<"ContactSubmission"> | string | null
     address?: StringNullableWithAggregatesFilter<"ContactSubmission"> | string | null
     message?: StringNullableWithAggregatesFilter<"ContactSubmission"> | string | null
+    isRead?: BoolWithAggregatesFilter<"ContactSubmission"> | boolean
+    status?: StringWithAggregatesFilter<"ContactSubmission"> | string
     createdAt?: DateTimeNullableWithAggregatesFilter<"ContactSubmission"> | Date | string | null
   }
 
@@ -4317,6 +4390,8 @@ export namespace Prisma {
     service?: StringFilter<"QuoteRequest"> | string
     address?: StringNullableFilter<"QuoteRequest"> | string | null
     message?: StringNullableFilter<"QuoteRequest"> | string | null
+    isRead?: BoolFilter<"QuoteRequest"> | boolean
+    status?: StringFilter<"QuoteRequest"> | string
     createdAt?: DateTimeNullableFilter<"QuoteRequest"> | Date | string | null
   }
 
@@ -4327,6 +4402,8 @@ export namespace Prisma {
     service?: SortOrder
     address?: SortOrderInput | SortOrder
     message?: SortOrderInput | SortOrder
+    isRead?: SortOrder
+    status?: SortOrder
     createdAt?: SortOrderInput | SortOrder
   }
 
@@ -4340,6 +4417,8 @@ export namespace Prisma {
     service?: StringFilter<"QuoteRequest"> | string
     address?: StringNullableFilter<"QuoteRequest"> | string | null
     message?: StringNullableFilter<"QuoteRequest"> | string | null
+    isRead?: BoolFilter<"QuoteRequest"> | boolean
+    status?: StringFilter<"QuoteRequest"> | string
     createdAt?: DateTimeNullableFilter<"QuoteRequest"> | Date | string | null
   }, "id">
 
@@ -4350,6 +4429,8 @@ export namespace Prisma {
     service?: SortOrder
     address?: SortOrderInput | SortOrder
     message?: SortOrderInput | SortOrder
+    isRead?: SortOrder
+    status?: SortOrder
     createdAt?: SortOrderInput | SortOrder
     _count?: QuoteRequestCountOrderByAggregateInput
     _max?: QuoteRequestMaxOrderByAggregateInput
@@ -4366,6 +4447,8 @@ export namespace Prisma {
     service?: StringWithAggregatesFilter<"QuoteRequest"> | string
     address?: StringNullableWithAggregatesFilter<"QuoteRequest"> | string | null
     message?: StringNullableWithAggregatesFilter<"QuoteRequest"> | string | null
+    isRead?: BoolWithAggregatesFilter<"QuoteRequest"> | boolean
+    status?: StringWithAggregatesFilter<"QuoteRequest"> | string
     createdAt?: DateTimeNullableWithAggregatesFilter<"QuoteRequest"> | Date | string | null
   }
 
@@ -4415,6 +4498,8 @@ export namespace Prisma {
     projectType?: string | null
     address?: string | null
     message?: string | null
+    isRead?: boolean
+    status?: string
     createdAt?: Date | string | null
   }
 
@@ -4425,6 +4510,8 @@ export namespace Prisma {
     projectType?: string | null
     address?: string | null
     message?: string | null
+    isRead?: boolean
+    status?: string
     createdAt?: Date | string | null
   }
 
@@ -4435,6 +4522,8 @@ export namespace Prisma {
     projectType?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
     message?: NullableStringFieldUpdateOperationsInput | string | null
+    isRead?: BoolFieldUpdateOperationsInput | boolean
+    status?: StringFieldUpdateOperationsInput | string
     createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
@@ -4445,6 +4534,8 @@ export namespace Prisma {
     projectType?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
     message?: NullableStringFieldUpdateOperationsInput | string | null
+    isRead?: BoolFieldUpdateOperationsInput | boolean
+    status?: StringFieldUpdateOperationsInput | string
     createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
@@ -4455,6 +4546,8 @@ export namespace Prisma {
     projectType?: string | null
     address?: string | null
     message?: string | null
+    isRead?: boolean
+    status?: string
     createdAt?: Date | string | null
   }
 
@@ -4465,6 +4558,8 @@ export namespace Prisma {
     projectType?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
     message?: NullableStringFieldUpdateOperationsInput | string | null
+    isRead?: BoolFieldUpdateOperationsInput | boolean
+    status?: StringFieldUpdateOperationsInput | string
     createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
@@ -4475,6 +4570,8 @@ export namespace Prisma {
     projectType?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
     message?: NullableStringFieldUpdateOperationsInput | string | null
+    isRead?: BoolFieldUpdateOperationsInput | boolean
+    status?: StringFieldUpdateOperationsInput | string
     createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
@@ -4485,6 +4582,8 @@ export namespace Prisma {
     service: string
     address?: string | null
     message?: string | null
+    isRead?: boolean
+    status?: string
     createdAt?: Date | string | null
   }
 
@@ -4495,6 +4594,8 @@ export namespace Prisma {
     service: string
     address?: string | null
     message?: string | null
+    isRead?: boolean
+    status?: string
     createdAt?: Date | string | null
   }
 
@@ -4505,6 +4606,8 @@ export namespace Prisma {
     service?: StringFieldUpdateOperationsInput | string
     address?: NullableStringFieldUpdateOperationsInput | string | null
     message?: NullableStringFieldUpdateOperationsInput | string | null
+    isRead?: BoolFieldUpdateOperationsInput | boolean
+    status?: StringFieldUpdateOperationsInput | string
     createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
@@ -4515,6 +4618,8 @@ export namespace Prisma {
     service?: StringFieldUpdateOperationsInput | string
     address?: NullableStringFieldUpdateOperationsInput | string | null
     message?: NullableStringFieldUpdateOperationsInput | string | null
+    isRead?: BoolFieldUpdateOperationsInput | boolean
+    status?: StringFieldUpdateOperationsInput | string
     createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
@@ -4525,6 +4630,8 @@ export namespace Prisma {
     service: string
     address?: string | null
     message?: string | null
+    isRead?: boolean
+    status?: string
     createdAt?: Date | string | null
   }
 
@@ -4535,6 +4642,8 @@ export namespace Prisma {
     service?: StringFieldUpdateOperationsInput | string
     address?: NullableStringFieldUpdateOperationsInput | string | null
     message?: NullableStringFieldUpdateOperationsInput | string | null
+    isRead?: BoolFieldUpdateOperationsInput | boolean
+    status?: StringFieldUpdateOperationsInput | string
     createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
@@ -4545,6 +4654,8 @@ export namespace Prisma {
     service?: StringFieldUpdateOperationsInput | string
     address?: NullableStringFieldUpdateOperationsInput | string | null
     message?: NullableStringFieldUpdateOperationsInput | string | null
+    isRead?: BoolFieldUpdateOperationsInput | boolean
+    status?: StringFieldUpdateOperationsInput | string
     createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
@@ -4625,6 +4736,11 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
   export type DateTimeNullableFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
@@ -4648,6 +4764,8 @@ export namespace Prisma {
     projectType?: SortOrder
     address?: SortOrder
     message?: SortOrder
+    isRead?: SortOrder
+    status?: SortOrder
     createdAt?: SortOrder
   }
 
@@ -4658,6 +4776,8 @@ export namespace Prisma {
     projectType?: SortOrder
     address?: SortOrder
     message?: SortOrder
+    isRead?: SortOrder
+    status?: SortOrder
     createdAt?: SortOrder
   }
 
@@ -4668,6 +4788,8 @@ export namespace Prisma {
     projectType?: SortOrder
     address?: SortOrder
     message?: SortOrder
+    isRead?: SortOrder
+    status?: SortOrder
     createdAt?: SortOrder
   }
 
@@ -4722,6 +4844,14 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
   export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
@@ -4743,6 +4873,8 @@ export namespace Prisma {
     service?: SortOrder
     address?: SortOrder
     message?: SortOrder
+    isRead?: SortOrder
+    status?: SortOrder
     createdAt?: SortOrder
   }
 
@@ -4753,6 +4885,8 @@ export namespace Prisma {
     service?: SortOrder
     address?: SortOrder
     message?: SortOrder
+    isRead?: SortOrder
+    status?: SortOrder
     createdAt?: SortOrder
   }
 
@@ -4763,6 +4897,8 @@ export namespace Prisma {
     service?: SortOrder
     address?: SortOrder
     message?: SortOrder
+    isRead?: SortOrder
+    status?: SortOrder
     createdAt?: SortOrder
   }
 
@@ -4849,6 +4985,10 @@ export namespace Prisma {
     set?: string | null
   }
 
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
+  }
+
   export type NullableDateTimeFieldUpdateOperationsInput = {
     set?: Date | string | null
   }
@@ -4902,6 +5042,11 @@ export namespace Prisma {
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
   export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
@@ -4983,6 +5128,14 @@ export namespace Prisma {
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {

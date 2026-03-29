@@ -127,6 +127,8 @@ exports.Prisma.ContactSubmissionScalarFieldEnum = {
   projectType: 'projectType',
   address: 'address',
   message: 'message',
+  isRead: 'isRead',
+  status: 'status',
   createdAt: 'createdAt'
 };
 
@@ -137,6 +139,8 @@ exports.Prisma.QuoteRequestScalarFieldEnum = {
   service: 'service',
   address: 'address',
   message: 'message',
+  isRead: 'isRead',
+  status: 'status',
   createdAt: 'createdAt'
 };
 
