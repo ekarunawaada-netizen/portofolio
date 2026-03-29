@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Layanan - MASONRY ARCHITECT",
@@ -33,10 +34,11 @@ export default function LayananPage() {
           {/* 1. Bangun Rumah Baru (Large Featured) */}
           <div className="md:col-span-8 group relative overflow-hidden rounded-lg bg-surface-container-lowest min-h-[500px] flex flex-col justify-end">
             <div className="absolute inset-0 z-0">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
+                fill
+                sizes="(max-width: 768px) 100vw, 66vw"
                 alt="Bangun Rumah Baru"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOoygGyZlfWNa6R2tl4bPnLqHkTUCDDvP094N8yEmIBS_BXn4kZ5a4oTBRjzD1Bnmtw-UymUz-V3XCablsgIWlTsoxYqNXH4yXhjTXMDk5kigX3A8t-hu3DIzm4dyFmLl-SPCUzGnNtv3DVaO39C0CW_p_Z4FLYccK2aoR5uoxwX-cR9Tw0P9PKwTrI58OEInxTVYWhqx9CdbvejhyMd-yQaquhX4dUkLuu7UIJa-0L3Pgh1j7I2ER7RSh075GJeV29srKyx-Gunw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/40 to-transparent" />
@@ -73,11 +75,12 @@ export default function LayananPage() {
 
           {/* 2. Renovasi & Perbaikan */}
           <div className="md:col-span-4 group relative overflow-hidden rounded-lg bg-surface-container min-h-[500px] flex flex-col">
-            <div className="h-1/2 overflow-hidden">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+            <div className="h-1/2 overflow-hidden relative">
+              <Image
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
                 alt="Renovasi"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGju69W9YctHZve_w7hcMJcKLyvxS8gEMP8H5h4jcKpkxk33--3jHoBrASNp3xamH58YW08g2owfKMuMIj5ibTDPkkYIvN4ZEczCgxdWwPCRxjpeJwCv2_taeRY4FeLkvW5OzQ9U4WgKPP775N3vpJcSv7MfhFR5LM_DxV_mnGNX9N0m2hD1YVv5PMHaMAAlt_gQdyD33scGg-TlMj8mk4-kx89K-dn32nzTsXdyFLKZeo7L4uBAmhzxe9DdfnBuq9yrPcJPPitho"
               />
             </div>
@@ -109,10 +112,11 @@ export default function LayananPage() {
           {/* 3. Pemasangan Keramik & Granit */}
           <div className="md:col-span-5 group relative overflow-hidden rounded-lg bg-surface-container-lowest min-h-[400px] flex flex-col border-none">
             <div className="absolute inset-0">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
+                fill
+                sizes="(max-width: 768px) 100vw, 42vw"
                 alt="Tiling"
-                className="w-full h-full object-cover opacity-20 grayscale group-hover:grayscale-0 group-hover:opacity-40 transition-all duration-700"
+                className="object-cover opacity-20 grayscale group-hover:grayscale-0 group-hover:opacity-40 transition-all duration-700"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDpVwuFagLrApNxiv2mOWlaL7xNeux3abRVmqrFcPtKAo5yKW_xXV7I8vP7g_6-Zem1SDSqcecBDL-2WBiiC5cZp5O9dzcUcIIOVM453IZiEo0-MdZgejWgjftiZFrq5ZBHxLmlu8Brxa80Ug__4LgBgkh8wKczLcf-OzYyCFjZnyiqEmzc9en94Gfm-5AWa1-BtepYMml_6OdBfu86dFBfDJm2xlYy7tqxlaaKVElwC0xTp1w9x9dJPS_T952ivgXMyNmNT9JSgI"
               />
             </div>
@@ -154,10 +158,11 @@ export default function LayananPage() {
                 </button>
               </div>
               <div className="relative h-full min-h-[250px] order-1 md:order-2">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <Image
+                  fill
+                  sizes="(max-width: 768px) 100vw, 42vw"
                   alt="Finishing"
-                  className="absolute inset-0 w-full h-full object-cover"
+                  className="object-cover"
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRCDQXak7hR_FN4iv2YZeDPJDz5MsemPf6dU-N0ltfneVqu0SK8zr4tsR7KjTVF_f8ZJ4BKLHRmyT7IH6PRoGj8QecOJCuMPrND7JFR84Bc1yYUmCTknKfxh3IQiBRMLycvu2NLPZC7waOj_jqluRsJKFHWRAW-f-R4aec13uWVNUcgbVC4TG5FRhG8sP3zqkXCHPiUqglG9Bx5iCtcyBYk78r64N7GpCLAN66fyWEOKuCCwi_dPsLrONG-9aym8LmyYKyRV9ZeyE"
                 />
                 <div className="absolute inset-0 bg-primary/20" />
